@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Turma</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Criar Turma</h1>
+    <form action="{{ url_for('turmas.criar_turma') }}" method="post">
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" required>
+        <label for="professor_id">Professor:</label>
+        <select id="professor_id" name="professor_id" required>
+            {% for professor in Professor.get_all_professores() %}
+                <option value="{{ professor.id }}">{{ professor.nome }}</option>
+            {% endfor %}
+        </select>
+        <label for="ativo">Ativo:</label>
+        <select id="ativo" name="ativo">
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+        <button type="submit">Criar</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Atualizar Professor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Atualizar Professor</h1>
+    <form action="{{ url_for('professores.atualizar_professor', professor_id=professor.id) }}" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" value="{{ professor.nome }}" required>
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" name="idade" value="{{ professor.idade }}" required>
+        <label for="materia">Matéria:</label>
+        <input type="text" id="materia" name="materia" value="{{ professor.materia }}" required>
+        <label for="observacoes">Observações:</label>
+        <textarea id="observacoes" name="observacoes">{{ professor.observacoes }}</textarea>
+        <button type="submit">Atualizar</button>
+    </form>
+</body>
+</html>

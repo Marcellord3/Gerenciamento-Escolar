@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Turmas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Lista de Turmas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descrição</th>
+                <th>Professor</th>
+                <th>Ativo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for turma in turmas %}
+            <tr>
+                <td>{{ turma.id }}</td>
+                <td>{{ turma.descricao }}</td>
+                <td>{{ turma.professor.nome }}</td>
+                <td>{{ 'Sim' if turma.ativo else 'Não' }}</td>
+                <td>
+                    <a href="{{ url_for('turmas.atualizar_turma', turma_id=turma.id) }}">Atualizar</a>
+                    <a href="{{ url_for('turmas.excluir_turma', turma_id=turma.id) }}">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('turmas.criar_turma') }}">Criar Nova Turma</a>
+</body>
+</html>

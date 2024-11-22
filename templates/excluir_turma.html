@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Excluir Turma</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Excluir Turma</h1>
+    <p>Tem certeza que deseja excluir a turma <strong>{{ turma.descricao }}</strong>?</p>
+    <form action="{{ url_for('turmas.excluir_turma', turma_id=turma.id) }}" method="post">
+        <button type="submit">Excluir</button>
+    </form>
+    <a href="{{ url_for('turmas.listar_turma') }}">Cancelar</a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Gerenciamento Escolar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Bem-vindo ao Sistema de Gerenciamento Escolar</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('professores.listar_professores') }}">Listar Professores</a></li>
+            <li><a href="{{ url_for('professores.criar_professor') }}">Criar Professor</a></li>
+            <li><a href="{{ url_for('turmas.listar_turma') }}">Listar Turmas</a></li>
+            <li><a href="{{ url_for('turmas.criar_turma') }}">Criar Turma</a></li>
+            <li><a href="{{ url_for('alunos.listar_alunos') }}">Listar Alunos</a></li>
+            <li><a href="{{ url_for('alunos.criar_alunos') }}">Criar Aluno</a></li>
+            <li><a href="{{ url_for('atividades.listar_atividades') }}">Listar Atividades</a></li>
+            <li><a href="{{ url_for('atividades.criar_atividade') }}">Criar Atividade</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
